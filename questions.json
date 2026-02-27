@@ -1,0 +1,228 @@
+{
+  "core_questions": [
+    {
+      "id": "Q1",
+      "text": "What type of work environment do you prefer?",
+      "criterion": "stability",
+      "options": [
+        { "text": "Highly dynamic and unpredictable", "value": 1 },
+        { "text": "Mostly flexible with some structure", "value": 2 },
+        { "text": "Mostly structured with some flexibility", "value": 3 },
+        { "text": "Highly structured and stable", "value": 4 }
+      ]
+    },
+    {
+      "id": "Q2",
+      "text": "Which activity do you enjoy more?",
+      "criterion": "analytical",
+      "options": [
+        { "text": "Creative expression (art, media, writing)", "value": 1 },
+        { "text": "Balanced creative and analytical work", "value": 2 },
+        { "text": "Mostly analytical problem solving", "value": 3 },
+        { "text": "Highly logical and technical problem solving", "value": 4 }
+      ]
+    },
+    {
+      "id": "Q3",
+      "text": "How important is high income in your career?",
+      "criterion": "income_priority",
+      "options": [
+        { "text": "Not important", "value": 1 },
+        { "text": "Somewhat important", "value": 2 },
+        { "text": "Very important", "value": 3 },
+        { "text": "Top priority", "value": 4 }
+      ]
+    },
+    {
+      "id": "Q4",
+      "text": "How many years are you willing to study after +2?",
+      "criterion": "years_willing",
+      "options": [
+        { "text": "Up to 3 years", "value": 1 },
+        { "text": "3–4 years", "value": 2 },
+        { "text": "5–6 years", "value": 3 },
+        { "text": "More than 6 years", "value": 4 }
+      ]
+    },
+    {
+      "id": "Q5",
+      "text": "What is your family's financial capacity for higher education?",
+      "criterion": "financial_support",
+      "options": [
+        { "text": "Very limited", "value": 1 },
+        { "text": "Manageable with support", "value": 2 },
+        { "text": "Comfortable", "value": 3 },
+        { "text": "Fully stable and supportive", "value": 4 }
+      ]
+    },
+    {
+      "id": "Q6",
+      "text": "How confident are you in cracking competitive exams?",
+      "criterion": "competitive_confidence",
+      "options": [
+        { "text": "Not confident", "value": 1 },
+        { "text": "Moderately confident", "value": 2 },
+        { "text": "Confident", "value": 3 },
+        { "text": "Very confident and prepared", "value": 4 }
+      ]
+    },
+    {
+      "id": "Q7",
+      "text": "Which sector do you prefer working in?",
+      "criterion": "sector_preference",
+      "options": [
+        { "text": "Private sector", "value": 1 },
+        { "text": "Either is fine", "value": 2 },
+        { "text": "Mostly public sector", "value": 3 },
+        { "text": "Strongly prefer government/public sector", "value": 4 }
+      ]
+    }
+  ],
+
+  "stream_specific_questions": {
+
+    "Science": [
+      {
+        "id": "Q8",
+        "text": "How comfortable are you with advanced mathematics?",
+        "criterion": "math_comfort",
+        "options": [
+          { "text": "Very uncomfortable", "value": 1 },
+          { "text": "Manageable", "value": 2 },
+          { "text": "Comfortable", "value": 3 },
+          { "text": "Very strong in math", "value": 4 }
+        ]
+      },
+      {
+        "id": "Q9",
+        "text": "How interested are you in research and lab work?",
+        "criterion": "research_interest",
+        "options": [
+          { "text": "Not interested", "value": 1 },
+          { "text": "Slightly interested", "value": 2 },
+          { "text": "Interested", "value": 3 },
+          { "text": "Highly passionate about research", "value": 4 }
+        ]
+      },
+      {
+        "id": "Q10",
+        "text": "How well do you handle academic pressure?",
+        "criterion": "stress_tolerance",
+        "options": [
+          { "text": "Poorly", "value": 1 },
+          { "text": "Manageable", "value": 2 },
+          { "text": "Handle it well", "value": 3 },
+          { "text": "Thrive under pressure", "value": 4 }
+        ]
+      }
+    ],
+
+    "Humanities": [
+      {
+        "id": "Q8",
+        "text": "How interested are you in governance and public policy?",
+        "criterion": "research_interest",
+        "options": [
+          { "text": "Not interested", "value": 1 },
+          { "text": "Somewhat interested", "value": 2 },
+          { "text": "Interested", "value": 3 },
+          { "text": "Highly passionate", "value": 4 }
+        ]
+      },
+      {
+        "id": "Q9",
+        "text": "How comfortable are you with heavy reading and writing?",
+        "criterion": "analytical",
+        "options": [
+          { "text": "Very uncomfortable", "value": 1 },
+          { "text": "Manageable", "value": 2 },
+          { "text": "Comfortable", "value": 3 },
+          { "text": "Very strong in writing and analysis", "value": 4 }
+        ]
+      },
+      {
+        "id": "Q10",
+        "text": "How confident are you in public speaking?",
+        "criterion": "stress_tolerance",
+        "options": [
+          { "text": "Very low confidence", "value": 1 },
+          { "text": "Somewhat confident", "value": 2 },
+          { "text": "Confident", "value": 3 },
+          { "text": "Highly confident speaker", "value": 4 }
+        ]
+      }
+    ],
+
+    "Commerce": [
+      {
+        "id": "Q8",
+        "text": "How strong are your numerical and financial skills?",
+        "criterion": "math_comfort",
+        "options": [
+          { "text": "Weak", "value": 1 },
+          { "text": "Average", "value": 2 },
+          { "text": "Strong", "value": 3 },
+          { "text": "Excellent and confident", "value": 4 }
+        ]
+      },
+      {
+        "id": "Q9",
+        "text": "How interested are you in starting a business?",
+        "criterion": "income_priority",
+        "options": [
+          { "text": "Not interested", "value": 1 },
+          { "text": "Maybe someday", "value": 2 },
+          { "text": "Interested", "value": 3 },
+          { "text": "Strong entrepreneurial drive", "value": 4 }
+        ]
+      },
+      {
+        "id": "Q10",
+        "text": "Are you willing to pursue professional certifications (CA/CS/CMA)?",
+        "criterion": "competitive_confidence",
+        "options": [
+          { "text": "Not willing", "value": 1 },
+          { "text": "Maybe", "value": 2 },
+          { "text": "Willing", "value": 3 },
+          { "text": "Fully committed", "value": 4 }
+        ]
+      }
+    ],
+
+    "Media & Applied": [
+      {
+        "id": "Q8",
+        "text": "How strong is your creative mindset?",
+        "criterion": "analytical",
+        "options": [
+          { "text": "Low creativity", "value": 1 },
+          { "text": "Some creativity", "value": 2 },
+          { "text": "Creative", "value": 3 },
+          { "text": "Highly innovative and expressive", "value": 4 }
+        ]
+      },
+      {
+        "id": "Q9",
+        "text": "How comfortable are you being in public view (camera/stage)?",
+        "criterion": "stress_tolerance",
+        "options": [
+          { "text": "Very uncomfortable", "value": 1 },
+          { "text": "Manageable", "value": 2 },
+          { "text": "Comfortable", "value": 3 },
+          { "text": "Love being in public spotlight", "value": 4 }
+        ]
+      },
+      {
+        "id": "Q10",
+        "text": "How skilled are you with digital tools and technology?",
+        "criterion": "math_comfort",
+        "options": [
+          { "text": "Beginner", "value": 1 },
+          { "text": "Basic user", "value": 2 },
+          { "text": "Comfortable user", "value": 3 },
+          { "text": "Advanced user", "value": 4 }
+        ]
+      }
+    ]
+  }
+}

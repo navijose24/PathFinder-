@@ -1,0 +1,1236 @@
+{
+    "Science": {
+        "description": "STEM-focused academic stream",
+        "combinations": [
+            {
+                "id": "SCI_01",
+                "subjects": [
+                    "Physics",
+                    "Chemistry",
+                    "Biology",
+                    "Mathematics"
+                ],
+                "career_cluster": [
+                    "Engineering",
+                    "Medical",
+                    "Research"
+                ],
+                "courses": [
+                    "MBBS (Bachelor of Medicine and Bachelor of Surgery)",
+                    "B.Tech / BE (Engineering – any branch)",
+                    "B.Sc Biology / Botany / Zoology",
+                    "B.Sc Bioinformatics",
+                    "B.Sc Biotechnology",
+                    "B.Sc Microbiology",
+                    "B.Pharm (Bachelor of Pharmacy)",
+                    "BDS (Bachelor of Dental Surgery)",
+                    "B.Sc Nursing",
+                    "BSc Agricultural Science",
+                    "B.Sc Biochemistry",
+                    "Integrated M.Sc (Physics / Chemistry / Biology)",
+                    "B.Sc Forensic Science",
+                    "B.Sc Environmental Science",
+                    "B.V.Sc (Veterinary Science)"
+                ],
+                "new_courses": [
+                    "B.Sc Neuroscience",
+                    "B.Sc Biomedical Engineering",
+                    "B.Sc Medical Laboratory Technology (MLT)"
+                ]
+            },
+            {
+                "id": "SCI_02",
+                "subjects": [
+                    "Physics",
+                    "Chemistry",
+                    "Biology",
+                    "Home Science"
+                ],
+                "career_cluster": [
+                    "Medical",
+                    "Allied_Health",
+                    "Nutrition"
+                ],
+                "courses": [
+                    "B.Sc Nutrition and Dietetics",
+                    "B.Sc Home Science",
+                    "B.Sc Food Science and Technology",
+                    "B.Sc Nursing",
+                    "B.Sc Allied Health Sciences",
+                    "MBBS (with Biology background)",
+                    "B.Pharm",
+                    "B.Sc Microbiology",
+                    "B.Sc Biotechnology",
+                    "Diploma in Dietetics",
+                    "B.Sc Food and Beverage Management",
+                    "B.Sc Public Health"
+                ],
+                "new_courses": [
+                    "B.Sc Child Development and Family Studies",
+                    "B.Sc Sports Nutrition",
+                    "B.Sc Textile and Apparel Design"
+                ]
+            },
+            {
+                "id": "SCI_03",
+                "subjects": [
+                    "Physics",
+                    "Chemistry",
+                    "Home Science",
+                    "Mathematics"
+                ],
+                "career_cluster": [
+                    "Engineering",
+                    "Applied_Sciences"
+                ],
+                "courses": [
+                    "B.Tech Food Technology",
+                    "B.Tech Textile Engineering",
+                    "B.Sc Applied Sciences",
+                    "B.Sc Home Science",
+                    "B.Sc Nutrition and Dietetics",
+                    "B.Tech Agricultural Engineering",
+                    "B.Sc Mathematics",
+                    "BE (Mechanical / Chemical Engineering)",
+                    "B.Sc Food Science and Technology",
+                    "Diploma in Interior Design"
+                ],
+                "new_courses": [
+                    "B.Sc Consumer Sciences",
+                    "B.Tech Biochemical Engineering",
+                    "B.Sc Applied Chemistry"
+                ]
+            },
+            {
+                "id": "SCI_04",
+                "subjects": [
+                    "Physics",
+                    "Chemistry",
+                    "Geology",
+                    "Mathematics"
+                ],
+                "career_cluster": [
+                    "Geoscience",
+                    "Civil_Engineering"
+                ],
+                "courses": [
+                    "B.Sc Geology",
+                    "BE / B.Tech Civil Engineering",
+                    "B.Tech Mining Engineering",
+                    "B.Sc Applied Geology",
+                    "B.Sc Earth Science",
+                    "B.Tech Petroleum Engineering",
+                    "B.Sc Environmental Science",
+                    "B.Sc Geophysics",
+                    "Integrated M.Sc Geology",
+                    "B.Tech Geotechnical Engineering"
+                ],
+                "new_courses": [
+                    "B.Sc Hydrogeology",
+                    "B.Tech Remote Sensing and GIS",
+                    "B.Sc Oceanography"
+                ]
+            },
+            {
+                "id": "SCI_05",
+                "subjects": [
+                    "Physics",
+                    "Chemistry",
+                    "Mathematics",
+                    "Computer Science"
+                ],
+                "career_cluster": [
+                    "Engineering",
+                    "IT",
+                    "Data_Science"
+                ],
+                "courses": [
+                    "B.Tech Computer Science and Engineering",
+                    "B.Tech Information Technology",
+                    "B.Tech Electronics and Communication",
+                    "B.Sc Computer Science",
+                    "B.Sc Data Science",
+                    "BCA (Bachelor of Computer Applications)",
+                    "BE Software Engineering",
+                    "B.Tech Artificial Intelligence & ML",
+                    "B.Sc Mathematics and Computing",
+                    "B.Tech Cybersecurity",
+                    "Integrated B.Tech + M.Tech CSE",
+                    "B.Sc Physics (with CS minor)"
+                ],
+                "new_courses": [
+                    "B.Tech Cloud Computing",
+                    "B.Sc Quantum Computing",
+                    "B.Tech Robotics and Automation"
+                ]
+            },
+            {
+                "id": "SCI_06",
+                "subjects": [
+                    "Physics",
+                    "Chemistry",
+                    "Mathematics",
+                    "Electronics"
+                ],
+                "career_cluster": [
+                    "Electronics_Engineering",
+                    "Core_Engineering"
+                ],
+                "courses": [
+                    "B.Tech Electronics and Communication Engineering (ECE)",
+                    "B.Tech Electrical Engineering",
+                    "B.Tech Electronics and Instrumentation",
+                    "BE Mechatronics",
+                    "B.Sc Electronics",
+                    "B.Tech VLSI Design",
+                    "B.Tech Embedded Systems",
+                    "B.Tech Power Electronics",
+                    "B.Sc Applied Electronics",
+                    "Diploma in Electronics Engineering"
+                ],
+                "new_courses": [
+                    "B.Tech Photonics Engineering",
+                    "B.Tech RF and Microwave Engineering",
+                    "B.Sc Nanotechnology"
+                ]
+            },
+            {
+                "id": "SCI_07",
+                "subjects": [
+                    "Physics",
+                    "Chemistry",
+                    "Computer Science",
+                    "Geology"
+                ],
+                "career_cluster": [
+                    "IT",
+                    "Geoinformatics"
+                ],
+                "courses": [
+                    "B.Sc Geoinformatics",
+                    "B.Tech Remote Sensing & GIS",
+                    "B.Sc Computer Science",
+                    "B.Sc Geology",
+                    "B.Tech Environmental Engineering",
+                    "B.Sc Geographic Information Systems",
+                    "B.Sc Earth and Atmospheric Sciences",
+                    "BCA with GIS specialisation"
+                ],
+                "new_courses": [
+                    "B.Sc Cartography and Surveying",
+                    "B.Tech Spatial Data Engineering",
+                    "B.Sc Digital Earth Science"
+                ]
+            },
+            {
+                "id": "SCI_08",
+                "subjects": [
+                    "Physics",
+                    "Chemistry",
+                    "Mathematics",
+                    "Statistics"
+                ],
+                "career_cluster": [
+                    "Data_Science",
+                    "Actuarial_Science"
+                ],
+                "courses": [
+                    "B.Sc Statistics",
+                    "B.Sc Data Science",
+                    "B.Sc Mathematics",
+                    "B.Sc Actuarial Science",
+                    "B.Tech Data Engineering",
+                    "Integrated M.Sc Statistics",
+                    "B.Sc Economics and Statistics",
+                    "BCA Data Analytics",
+                    "B.Sc Computational Mathematics",
+                    "B.Sc Applied Mathematics"
+                ],
+                "new_courses": [
+                    "B.Sc Financial Mathematics",
+                    "B.Sc Operations Research",
+                    "B.Sc Risk Analysis and Insurance"
+                ]
+            },
+            {
+                "id": "SCI_09",
+                "subjects": [
+                    "Physics",
+                    "Chemistry",
+                    "Biology",
+                    "Psychology"
+                ],
+                "career_cluster": [
+                    "Medical",
+                    "Psychology",
+                    "Neuroscience"
+                ],
+                "courses": [
+                    "BA / B.Sc Psychology",
+                    "MBBS",
+                    "B.Sc Neuroscience",
+                    "B.Sc Biopsychology",
+                    "B.Sc Counselling Psychology",
+                    "B.Sc Speech and Language Pathology",
+                    "B.Sc Occupational Therapy",
+                    "B.Sc Physiotherapy",
+                    "B.Sc Biology",
+                    "Integrated M.Sc Psychology"
+                ],
+                "new_courses": [
+                    "B.Sc Cognitive Science",
+                    "B.Sc Criminal Psychology",
+                    "B.Sc Health Psychology"
+                ]
+            }
+        ]
+    },
+    "Humanities": {
+        "description": "Social sciences and arts stream",
+        "combinations": [
+            {
+                "id": "HUM_10",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Geography"
+                ],
+                "career_cluster": [
+                    "Civil_Services",
+                    "Academia"
+                ],
+                "courses": [
+                    "BA History",
+                    "BA Economics",
+                    "BA Political Science",
+                    "BA Geography",
+                    "BA International Relations",
+                    "BBA Public Administration",
+                    "BA Urban Studies",
+                    "Integrated BA-LLB",
+                    "BA Environmental Studies"
+                ],
+                "new_courses": [
+                    "BA Development Studies",
+                    "BA Public Policy and Governance",
+                    "BA Geopolitics and International Affairs"
+                ]
+            },
+            {
+                "id": "HUM_11",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Sociology"
+                ],
+                "career_cluster": [
+                    "Civil_Services",
+                    "Social_Research"
+                ],
+                "courses": [
+                    "BA Sociology",
+                    "BA Political Science",
+                    "BA Economics",
+                    "BA History",
+                    "MA Integrated Social Sciences",
+                    "BSW (Bachelor of Social Work)",
+                    "BA Public Administration",
+                    "BA Criminology",
+                    "BA Human Rights"
+                ],
+                "new_courses": [
+                    "BA Peace and Conflict Studies",
+                    "BA Gender Studies",
+                    "BA Migration and Refugee Studies"
+                ]
+            },
+            {
+                "id": "HUM_12",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Geology"
+                ],
+                "career_cluster": [
+                    "Public_Policy",
+                    "Environment"
+                ],
+                "courses": [
+                    "BA Environmental Studies",
+                    "BA Economics",
+                    "BA Political Science",
+                    "B.Sc Environmental Science",
+                    "BA Environmental Policy",
+                    "BA Geography",
+                    "BBA Sustainability Management"
+                ],
+                "new_courses": [
+                    "BA Climate Change and Policy",
+                    "BA Earth and Sustainability Sciences",
+                    "BA Ecological Economics"
+                ]
+            },
+            {
+                "id": "HUM_13",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Music"
+                ],
+                "career_cluster": [
+                    "Public_Admin",
+                    "Performing_Arts"
+                ],
+                "courses": [
+                    "B.Mus (Bachelor of Music)",
+                    "BA Music",
+                    "BA Fine Arts",
+                    "BA Political Science",
+                    "BA Cultural Studies",
+                    "BA Heritage Management",
+                    "Diploma in Carnatic / Hindustani Music"
+                ],
+                "new_courses": [
+                    "BA Arts Administration",
+                    "BA Music Production and Technology",
+                    "BA Ethnomusicology"
+                ]
+            },
+            {
+                "id": "HUM_14",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Gandhian Studies"
+                ],
+                "career_cluster": [
+                    "Policy",
+                    "Social_Work"
+                ],
+                "courses": [
+                    "BSW (Bachelor of Social Work)",
+                    "BA Gandhian Studies",
+                    "BA Political Science",
+                    "BA Peace and Conflict Resolution",
+                    "BA Development Studies",
+                    "BA Ethics and Governance"
+                ],
+                "new_courses": [
+                    "BA Nonviolence and Sustainable Living",
+                    "BA Community Development",
+                    "BA Human Rights and Humanitarian Action"
+                ]
+            },
+            {
+                "id": "HUM_15",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Philosophy"
+                ],
+                "career_cluster": [
+                    "Academia",
+                    "Ethics_Law"
+                ],
+                "courses": [
+                    "BA Philosophy",
+                    "BA Political Science",
+                    "BA History",
+                    "LLB / Integrated BA LLB",
+                    "BA Ethics and Social Theory",
+                    "BA Comparative Religion",
+                    "BA Logic and Critical Thinking"
+                ],
+                "new_courses": [
+                    "BA Applied Ethics and Technology Policy",
+                    "BA Philosophy of Law",
+                    "BA Bioethics"
+                ]
+            },
+            {
+                "id": "HUM_16",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Social Work"
+                ],
+                "career_cluster": [
+                    "NGO",
+                    "Public_Service"
+                ],
+                "courses": [
+                    "BSW (Bachelor of Social Work)",
+                    "BA Social Policy",
+                    "BA Public Administration",
+                    "BA Community Development",
+                    "BA Political Science",
+                    "BA NGO Management"
+                ],
+                "new_courses": [
+                    "BA International Development",
+                    "BA Voluntary Sector Management",
+                    "BA Social Enterprise and Innovation"
+                ]
+            },
+            {
+                "id": "HUM_17",
+                "subjects": [
+                    "Islamic History",
+                    "Economics",
+                    "Political Science",
+                    "Geography"
+                ],
+                "career_cluster": [
+                    "Civil_Services",
+                    "Research"
+                ],
+                "courses": [
+                    "BA Islamic History",
+                    "BA Political Science",
+                    "BA Economics",
+                    "BA International Relations (Middle East focus)",
+                    "BA Arabic and Islamic Studies",
+                    "MA Integrated Islamic Studies"
+                ],
+                "new_courses": [
+                    "BA Comparative Religious Studies",
+                    "BA Middle Eastern and North African Studies",
+                    "BA Islamic Finance and Economics"
+                ]
+            },
+            {
+                "id": "HUM_18",
+                "subjects": [
+                    "Islamic History",
+                    "Economics",
+                    "Political Science",
+                    "Sociology"
+                ],
+                "career_cluster": [
+                    "Social_Research"
+                ],
+                "courses": [
+                    "BA Islamic History",
+                    "BA Sociology",
+                    "BA Political Science",
+                    "BSW",
+                    "BA Cultural Anthropology",
+                    "BA Muslim Studies"
+                ],
+                "new_courses": [
+                    "BA Civil Society and Social Movements",
+                    "BA Ethnic and Minority Studies",
+                    "BA Social Justice and Policy"
+                ]
+            },
+            {
+                "id": "HUM_19",
+                "subjects": [
+                    "Sociology",
+                    "Social Work",
+                    "Psychology",
+                    "Gandhian Studies"
+                ],
+                "career_cluster": [
+                    "Counselling",
+                    "Social_Work"
+                ],
+                "courses": [
+                    "BSW (Bachelor of Social Work)",
+                    "BA Psychology",
+                    "BA Sociology",
+                    "BA Counselling Psychology",
+                    "BA Community Development",
+                    "Diploma in Counselling"
+                ],
+                "new_courses": [
+                    "BA Substance Abuse Counselling",
+                    "BA Child and Adolescent Welfare",
+                    "BA Rehabilitation Psychology"
+                ]
+            },
+            {
+                "id": "HUM_20",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Psychology"
+                ],
+                "career_cluster": [
+                    "Civil_Services",
+                    "Psychology"
+                ],
+                "courses": [
+                    "BA Psychology",
+                    "BA Political Science",
+                    "BA History",
+                    "BA Economics",
+                    "BA Criminology",
+                    "Integrated M.Sc Psychology",
+                    "LLB (with Psychology)"
+                ],
+                "new_courses": [
+                    "BA Forensic Psychology",
+                    "BA Organisational Behaviour",
+                    "BA Political Psychology"
+                ]
+            },
+            {
+                "id": "HUM_21",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Anthropology"
+                ],
+                "career_cluster": [
+                    "Anthropology",
+                    "Research"
+                ],
+                "courses": [
+                    "BA Anthropology",
+                    "BA History",
+                    "BA Economics",
+                    "BA Sociology",
+                    "MA Integrated Anthropology",
+                    "BA Archaeology",
+                    "BA Heritage Studies"
+                ],
+                "new_courses": [
+                    "BA Medical Anthropology",
+                    "BA Digital Anthropology",
+                    "BA Visual Anthropology"
+                ]
+            },
+            {
+                "id": "HUM_22",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Geography",
+                    "Malayalam"
+                ],
+                "career_cluster": [
+                    "Teaching",
+                    "Translation"
+                ],
+                "courses": [
+                    "BA Malayalam",
+                    "B.Ed (Malayalam / Social Science)",
+                    "BA History",
+                    "BA Translation Studies",
+                    "BA Comparative Literature",
+                    "BA Linguistics"
+                ],
+                "new_courses": [
+                    "BA Malayalam Journalism and Media",
+                    "BA Cultural Heritage and Documentation",
+                    "BA Malayalam Digital Content Creation"
+                ]
+            },
+            {
+                "id": "HUM_23",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Geography",
+                    "Hindi"
+                ],
+                "career_cluster": [
+                    "Teaching",
+                    "Translation"
+                ],
+                "courses": [
+                    "BA Hindi",
+                    "B.Ed (Hindi / Social Science)",
+                    "BA Translation Studies",
+                    "BA Comparative Literature",
+                    "MA Integrated Hindi"
+                ],
+                "new_courses": [
+                    "BA Hindi Journalism",
+                    "BA Hindustani Language and Culture",
+                    "BA Subtitling and Media Localisation"
+                ]
+            },
+            {
+                "id": "HUM_24",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Geography",
+                    "Arabic"
+                ],
+                "career_cluster": [
+                    "Teaching",
+                    "MiddleEast_Careers"
+                ],
+                "courses": [
+                    "BA Arabic",
+                    "BA Arabic and Islamic Studies",
+                    "B.Ed (Arabic)",
+                    "BA Translation Studies (Arabic-English)",
+                    "Diploma in Arabic Language",
+                    "BA International Relations (Middle East)"
+                ],
+                "new_courses": [
+                    "BA Arabic Linguistics and Literature",
+                    "BA Gulf Studies and Business Arabic",
+                    "BA Arabic Media and Communication"
+                ]
+            },
+            {
+                "id": "HUM_25",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Geography",
+                    "Urdu"
+                ],
+                "career_cluster": [
+                    "Teaching"
+                ],
+                "courses": [
+                    "BA Urdu",
+                    "B.Ed (Urdu)",
+                    "BA Comparative Literature",
+                    "BA Translation Studies",
+                    "MA Integrated Urdu"
+                ],
+                "new_courses": [
+                    "BA Urdu Journalism and Media",
+                    "BA South Asian Languages and Cultures",
+                    "BA Urdu Literary Studies"
+                ]
+            },
+            {
+                "id": "HUM_26",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Geography",
+                    "Kannada"
+                ],
+                "career_cluster": [
+                    "Teaching"
+                ],
+                "courses": [
+                    "BA Kannada",
+                    "B.Ed (Kannada / Social Science)",
+                    "BA Translation Studies",
+                    "BA Comparative Literature"
+                ],
+                "new_courses": [
+                    "BA Kannada Digital Humanities",
+                    "BA Karnataka Heritage Studies",
+                    "BA Kannada Media and Communication"
+                ]
+            },
+            {
+                "id": "HUM_27",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Geography",
+                    "Tamil"
+                ],
+                "career_cluster": [
+                    "Teaching"
+                ],
+                "courses": [
+                    "BA Tamil",
+                    "B.Ed (Tamil / Social Science)",
+                    "BA Translation Studies",
+                    "BA Comparative Literature",
+                    "MA Integrated Tamil"
+                ],
+                "new_courses": [
+                    "BA Tamil Digital Humanities",
+                    "BA Tamil Classical Studies",
+                    "BA Tamil Cinema and Media Studies"
+                ]
+            },
+            {
+                "id": "HUM_28",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Sanskrit Sahitya",
+                    "Sanskrit Sastra"
+                ],
+                "career_cluster": [
+                    "Classical_Studies"
+                ],
+                "courses": [
+                    "BA Sanskrit",
+                    "BA Sanskrit Sahitya",
+                    "BA Sanskrit and Indology",
+                    "B.Ed (Sanskrit)",
+                    "Shastri (Classical Sanskrit Degree)",
+                    "Prachina Vishisht Shiksha"
+                ],
+                "new_courses": [
+                    "BA Sanskrit and Computational Linguistics",
+                    "BA Vedic Studies and Heritage",
+                    "BA Sanskrit Manuscript Studies and Preservation"
+                ]
+            },
+            {
+                "id": "HUM_29",
+                "subjects": [
+                    "History",
+                    "Philosophy",
+                    "Sanskrit Sahitya",
+                    "Sanskrit Sastra"
+                ],
+                "career_cluster": [
+                    "Philosophy",
+                    "Academia"
+                ],
+                "courses": [
+                    "BA Philosophy",
+                    "BA Sanskrit",
+                    "BA Indology",
+                    "BA Comparative Religion",
+                    "MA Integrated Philosophy",
+                    "Acharya (Sanskrit)"
+                ],
+                "new_courses": [
+                    "BA Indian Philosophy and Logic",
+                    "BA Eastern and Western Philosophical Traditions",
+                    "BA Sanskrit and Yoga Philosophy"
+                ]
+            },
+            {
+                "id": "HUM_30",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Statistics"
+                ],
+                "career_cluster": [
+                    "Policy_Analytics"
+                ],
+                "courses": [
+                    "BA Economics and Statistics",
+                    "BA Political Science",
+                    "B.Sc Statistics",
+                    "BA Policy Studies",
+                    "BBA Business Analytics",
+                    "BA Data-Driven Governance"
+                ],
+                "new_courses": [
+                    "BA Computational Social Science",
+                    "BA Electoral Analysis and Political Data Science",
+                    "BA Public Policy Evaluation"
+                ]
+            },
+            {
+                "id": "HUM_31",
+                "subjects": [
+                    "Sociology",
+                    "Social Work",
+                    "Psychology",
+                    "Statistics"
+                ],
+                "career_cluster": [
+                    "Social_Data_Analysis"
+                ],
+                "courses": [
+                    "BA Sociology",
+                    "BSW",
+                    "B.Sc Statistics",
+                    "BA Psychology",
+                    "BA Social Research Methods",
+                    "BBA HR Analytics"
+                ],
+                "new_courses": [
+                    "BA Behavioural Data Science",
+                    "BA Public Health Statistics",
+                    "BA Psychometrics and Assessment"
+                ]
+            },
+            {
+                "id": "HUM_32",
+                "subjects": [
+                    "Economics",
+                    "Statistics",
+                    "Anthropology",
+                    "Social Work"
+                ],
+                "career_cluster": [
+                    "Development_Economics"
+                ],
+                "courses": [
+                    "BA Economics",
+                    "B.Sc Statistics",
+                    "BA Anthropology",
+                    "BSW",
+                    "BA Development Studies",
+                    "BA International Studies"
+                ],
+                "new_courses": [
+                    "BA Labour Economics and Industrial Relations",
+                    "BA Rural Development and Planning",
+                    "BA Applied Social Research"
+                ]
+            },
+            {
+                "id": "HUM_33",
+                "subjects": [
+                    "Economics",
+                    "Gandhian Studies",
+                    "Communicative English",
+                    "Computer Applications"
+                ],
+                "career_cluster": [
+                    "Development_Studies"
+                ],
+                "courses": [
+                    "BA Development Studies",
+                    "BA Gandhian Studies",
+                    "BCA",
+                    "BA English",
+                    "BA Communication Studies",
+                    "BA Social Entrepreneurship"
+                ],
+                "new_courses": [
+                    "BA Digital Humanities",
+                    "BA Technology for Social Good",
+                    "BA English for Development Communication"
+                ]
+            },
+            {
+                "id": "HUM_34",
+                "subjects": [
+                    "Sociology",
+                    "Journalism",
+                    "Communicative English",
+                    "Computer Applications"
+                ],
+                "career_cluster": [
+                    "Journalism",
+                    "Media"
+                ],
+                "courses": [
+                    "BA Journalism and Mass Communication",
+                    "BA Communication Studies",
+                    "BA Media Studies",
+                    "BA Digital Media",
+                    "BCA",
+                    "BA Sociology",
+                    "Diploma in Journalism"
+                ],
+                "new_courses": [
+                    "BA Data Journalism",
+                    "BA Podcast and Audio Production",
+                    "BA Social Media Strategy and Analytics"
+                ]
+            },
+            {
+                "id": "HUM_35",
+                "subjects": [
+                    "Journalism",
+                    "English Literature",
+                    "Communicative English",
+                    "Psychology"
+                ],
+                "career_cluster": [
+                    "Media",
+                    "Content_Creation"
+                ],
+                "courses": [
+                    "BA Journalism and Mass Communication",
+                    "BA English Literature",
+                    "BA Creative Writing",
+                    "BA Media Psychology",
+                    "BA Content Writing and Publishing",
+                    "BA Film Studies and Media"
+                ],
+                "new_courses": [
+                    "BA UX Writing and Content Design",
+                    "BA Literary Journalism",
+                    "BA Brand Storytelling and Communication"
+                ]
+            },
+            {
+                "id": "HUM_41",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Sociology",
+                    "Malayalam"
+                ],
+                "career_cluster": [
+                    "Teaching"
+                ],
+                "courses": [
+                    "BA Malayalam",
+                    "BA Sociology",
+                    "B.Ed (Social Science / Malayalam)",
+                    "BA History",
+                    "BA Kerala Studies"
+                ],
+                "new_courses": [
+                    "BA Cultural Documentation and Heritage",
+                    "BA Regional Language Media",
+                    "BA Oral History and Memory Studies"
+                ]
+            },
+            {
+                "id": "HUM_42",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Political Science",
+                    "Malayalam"
+                ],
+                "career_cluster": [
+                    "Civil_Services"
+                ],
+                "courses": [
+                    "BA Political Science",
+                    "BA Malayalam",
+                    "BA History",
+                    "BA Economics",
+                    "BA Public Administration",
+                    "LLB Integrated"
+                ],
+                "new_courses": [
+                    "BA Kerala Studies and Governance",
+                    "BA Regional Politics and Policy",
+                    "BA Administrative Law"
+                ]
+            },
+            {
+                "id": "HUM_43",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Gandhian Studies",
+                    "Malayalam"
+                ],
+                "career_cluster": [
+                    "Social_Work"
+                ],
+                "courses": [
+                    "BSW",
+                    "BA Gandhian Studies",
+                    "BA Malayalam",
+                    "BA Community Development",
+                    "BA Social Policy"
+                ],
+                "new_courses": [
+                    "BA Rural Community Leadership",
+                    "BA Environmental Activism and Policy",
+                    "BA Indigenous Peoples and Rights"
+                ]
+            },
+            {
+                "id": "HUM_45",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Sociology",
+                    "Hindi"
+                ],
+                "career_cluster": [
+                    "Teaching"
+                ],
+                "courses": [
+                    "BA Hindi",
+                    "BA Sociology",
+                    "B.Ed (Hindi / Social Science)",
+                    "BA History",
+                    "BA Comparative Literature"
+                ],
+                "new_courses": [
+                    "BA Hindi Digital Journalism",
+                    "BA North Indian Languages and Culture",
+                    "BA Dialect and Sociolinguistics"
+                ]
+            },
+            {
+                "id": "HUM_46",
+                "subjects": [
+                    "History",
+                    "Economics",
+                    "Sociology",
+                    "Arabic"
+                ],
+                "career_cluster": [
+                    "Teaching",
+                    "International_Relations"
+                ],
+                "courses": [
+                    "BA Arabic",
+                    "BA Sociology",
+                    "B.Ed (Arabic / Social Science)",
+                    "BA International Relations",
+                    "BA Middle Eastern Studies"
+                ],
+                "new_courses": [
+                    "BA Arab-World Sociology",
+                    "BA Arabic and Development Studies",
+                    "BA Intercultural Communication (Arabic focus)"
+                ]
+            }
+        ]
+    },
+    "Commerce": {
+        "description": "Business and finance stream",
+        "combinations": [
+            {
+                "id": "COM_36",
+                "subjects": [
+                    "Business Studies",
+                    "Accountancy",
+                    "Economics",
+                    "Mathematics"
+                ],
+                "career_cluster": [
+                    "CA",
+                    "Finance",
+                    "Business_Analytics"
+                ],
+                "courses": [
+                    "B.Com (Bachelor of Commerce)",
+                    "BBA (Bachelor of Business Administration)",
+                    "CA Foundation → Intermediate → Final (ICAI)",
+                    "CMA (Cost Management Accounting)",
+                    "B.Sc Mathematics (with Commerce electives)",
+                    "BBA Business Analytics",
+                    "B.Com Hons",
+                    "Integrated MBA"
+                ],
+                "new_courses": [
+                    "BBA Quantitative Finance",
+                    "B.Com Taxation and Financial Planning",
+                    "B.Sc Financial Engineering"
+                ]
+            },
+            {
+                "id": "COM_37",
+                "subjects": [
+                    "Business Studies",
+                    "Accountancy",
+                    "Economics",
+                    "Statistics"
+                ],
+                "career_cluster": [
+                    "Data_Analytics",
+                    "Actuarial"
+                ],
+                "courses": [
+                    "B.Sc Statistics",
+                    "B.Com Statistics",
+                    "BBA Data Analytics",
+                    "BSc Actuarial Science",
+                    "B.Com Hons",
+                    "Integrated MBA Analytics",
+                    "BA Economics and Statistics"
+                ],
+                "new_courses": [
+                    "B.Sc Business Intelligence",
+                    "B.Com Financial Modelling",
+                    "BSc Insurance and Risk Management"
+                ]
+            },
+            {
+                "id": "COM_38",
+                "subjects": [
+                    "Business Studies",
+                    "Accountancy",
+                    "Economics",
+                    "Political Science"
+                ],
+                "career_cluster": [
+                    "Public_Finance",
+                    "Banking"
+                ],
+                "courses": [
+                    "B.Com",
+                    "BBA Banking and Finance",
+                    "BA Economics and Political Science",
+                    "BA Public Administration and Finance",
+                    "Integrated BA LLB (Commerce)",
+                    "BBA International Business"
+                ],
+                "new_courses": [
+                    "B.Com Government Finance and Audit",
+                    "BA Political Economy",
+                    "BBA Regulatory Affairs and Compliance"
+                ]
+            },
+            {
+                "id": "COM_39",
+                "subjects": [
+                    "Business Studies",
+                    "Accountancy",
+                    "Economics",
+                    "Computer Applications"
+                ],
+                "career_cluster": [
+                    "FinTech",
+                    "Business_IT"
+                ],
+                "courses": [
+                    "BCA (Bachelor of Computer Applications)",
+                    "B.Com Computer Applications",
+                    "BBA Information Technology",
+                    "B.Sc Data Science (Commerce track)",
+                    "B.Tech Information Technology",
+                    "Integrated BBA + MBA FinTech"
+                ],
+                "new_courses": [
+                    "B.Com Blockchain and Cryptocurrency",
+                    "BBA Digital Business and E-Commerce",
+                    "B.Sc Financial Technology (FinTech)"
+                ]
+            }
+        ]
+    },
+    "Media & Applied": {
+        "description": "Applied professional and media-oriented stream",
+        "combinations": [
+            {
+                "id": "MED_44",
+                "subjects": [
+                    "Social Work",
+                    "Journalism",
+                    "Communicative English",
+                    "Computer Applications"
+                ],
+                "career_cluster": [
+                    "Media",
+                    "NGO",
+                    "Digital_Content"
+                ],
+                "courses": [
+                    "BA Journalism and Mass Communication",
+                    "BSW (Bachelor of Social Work)",
+                    "BCA",
+                    "BA Communication Studies",
+                    "BA Digital Media and Content Creation",
+                    "BA English",
+                    "Diploma in Multimedia and Animation",
+                    "BA Public Relations and Advertising"
+                ],
+                "new_courses": [
+                    "BA Community Media and Development Journalism",
+                    "BA Social Media Management and Digital Marketing",
+                    "BA NGO Communication and Advocacy"
+                ]
+            }
+        ]
+    }
+}

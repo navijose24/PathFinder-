@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import { fetchStreams } from "../api/client.js";
 import { useDecision } from "../state/DecisionContext.jsx";
+import "./DomainSelector.css";
+
+const domainImages = {
+  "Science": "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_913,h_477/https://cace.org/wp-content/uploads/2022/02/science-913x477.jpg",
+  "Humanities": "https://voegelinview.com/wp-content/uploads/2021/07/Humanities-e1625531525415.jpg",
+  "Commerce": "https://img.freepik.com/free-vector/online-shopping-concept_1284-12631.jpg?semt=ais_user_personalization&w=740&q=80",
+  "Media & Applied": "https://s3-ap-south-1.amazonaws.com/ricedigitals3bucket/AUPortalContent/2020/07/02030224/mediaimgblog.jpg"
+};
+const defaultImage = "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80";
 
 function DomainSelector() {
   const { state, dispatch } = useDecision();
@@ -37,40 +46,41 @@ function DomainSelector() {
   };
 
   return (
-    <section className="card-section">
-      <div className="card-section-header">
-        <h2>Select your current stream</h2>
-        <p className="muted">
-          Start by choosing the broad academic domain you are currently pursuing.
-        </p>
+    <section className="hero-section" id="domain-selector">
+      <div className="hero-left">
+        <h1 className="hero-heading">
+          Choose<br />
+          Your<br />
+          Stream
+        </h1>
+        <div className="hero-search-box">
+          <input type="text" placeholder="Genz switch" />
+          <button type="button" className="go-btn">Go</button>
+        </div>
+        {loading && <p className="muted" style={{ marginTop: '1rem' }}>Loading domains…</p>}
+        {error && <p className="error-text" style={{ marginTop: '1rem' }}>{error}</p>}
       </div>
-      {loading && <p className="muted">Loading domains…</p>}
-      {error && <p className="error-text">{error}</p>}
-      <div className="grid grid-2 grid-3-md">
+
+      <div className="hero-right">
         {state.domains.map((domain) => {
           const isActive = state.domain === domain.name;
+          const bgImage = domainImages[domain.name] || defaultImage;
+
           return (
-            <button
+            <div
               key={domain.name}
-              type="button"
-              className={`card card-clickable domain-card ${
-                isActive ? "card-active" : ""
-              }`}
+              className={`accordion-item ${isActive ? "active" : ""}`}
               onClick={() => handleSelect(domain.name)}
+              style={{ backgroundImage: `url('${bgImage}')` }}
             >
-              <div className="domain-card-icon">
-                <span className="icon-circle">
-                  {domain.name.charAt(0).toUpperCase()}
-                </span>
-              </div>
-              <div className="domain-card-body">
+              <div className="accordion-content">
                 <h3>{domain.name}</h3>
-                <p className="muted">{domain.description}</p>
-                <p className="badge">
-                  {domain.combination_count} subject combinations
-                </p>
+                <div className="accordion-stats">
+                  <span className="count">{domain.combination_count}</span>
+                  <span className="label">TOPICS</span>
+                </div>
               </div>
-            </button>
+            </div>
           );
         })}
       </div>
@@ -79,4 +89,5 @@ function DomainSelector() {
 }
 
 export default DomainSelector;
+
 

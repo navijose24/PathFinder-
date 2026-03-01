@@ -1,0 +1,104 @@
+/* CombinationSelector — carousel card layout */
+
+.combo-section {
+    margin-bottom: 2.5rem;
+}
+
+.combo-section-header {
+    margin-bottom: 1.25rem;
+}
+
+.combo-heading {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 0 0 2.5rem 0;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+    .combo-heading {
+        font-size: 4.5rem;
+    }
+}
+
+.combo-section-header .muted {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Horizontal scrollable row */
+.combo-carousel {
+    display: flex;
+    gap: 0.85rem;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.combo-carousel::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+/* Each card */
+.combo-pill {
+    flex: 0 0 auto;
+    width: 220px;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 1.1rem 1.2rem;
+    border-radius: 20px;
+    border: 1.5px solid #e5e7eb;
+    background: #ffffff;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.14s ease;
+}
+
+.combo-pill:hover {
+    border-color: #d1d5db;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.combo-pill-active {
+    border-color: #111827;
+    box-shadow: 0 0 0 2px #111827;
+    background: #f9fafb;
+}
+
+/* Subjects text */
+.combo-pill-subjects {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #111827;
+    line-height: 1.45;
+}
+
+/* Cluster tags row */
+.combo-pill-clusters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.combo-cluster-tag {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    background: #e8f4ec;
+    color: #166534;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.combo-pill-active .combo-cluster-tag {
+    background: #dcfce7;
+}

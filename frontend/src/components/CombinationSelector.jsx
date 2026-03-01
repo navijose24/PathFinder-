@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { fetchCombinations } from "../api/client.js";
 import { useDecision } from "../state/DecisionContext.jsx";
+import "./CombinationSelector.css";
 
 function CombinationSelector() {
   const { state, dispatch } = useDecision();
   const { domain } = state;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    if (domain && sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [domain]);
 
   useEffect(() => {
     let mounted = true;
@@ -32,50 +40,44 @@ function CombinationSelector() {
     };
   }, [domain, dispatch]);
 
-  if (!domain) {
-    return null;
-  }
+  if (!domain) return null;
 
   const handleSelect = (combo) => {
     dispatch({ type: "SET_COMBINATION", payload: combo });
   };
 
   return (
-    <section className="card-section">
-      <div className="card-section-header">
-        <h2>Select your subject combination</h2>
-        <p className="muted">
-          Choose the closest match to your current subjects. This filters courses
-          to those that naturally follow from your background.
-        </p>
+    <section className="combo-section" ref={sectionRef}>
+      <div className="combo-section-header">
+        <h2 className="combo-heading">
+          Select
+          Your
+          Combination
+        </h2>
+        <p className="muted">Choose the closest match to your current subjects.</p>
       </div>
       {loading && <p className="muted">Loading combinations…</p>}
       {error && <p className="error-text">{error}</p>}
-      <div className="grid grid-1 grid-2-md">
+      <div className="combo-carousel">
         {state.combinations.map((combo) => {
           const isActive = state.selectedCombination?.id === combo.id;
           return (
             <button
               key={combo.id}
               type="button"
-              className={`card card-clickable combo-card ${
-                isActive ? "card-active" : ""
-              }`}
+              className={`combo-pill ${isActive ? "combo-pill-active" : ""}`}
               onClick={() => handleSelect(combo)}
             >
-              <div className="combo-card-header">
-                <span className="badge badge-soft">ID: {combo.id}</span>
-                <span className="badge">
-                  {combo.career_cluster?.join(" • ")}
-                </span>
-              </div>
-              <p className="combo-subjects">
+              <span className="combo-pill-subjects">
                 {combo.subjects?.join(" · ")}
-              </p>
-              <p className="muted small">
-                Example courses: {combo.courses?.slice(0, 3).join(", ")}
-                {combo.courses && combo.courses.length > 3 ? "…" : ""}
-              </p>
+              </span>
+              {combo.career_cluster?.length > 0 && (
+                <span className="combo-pill-clusters">
+                  {combo.career_cluster.map((c) => (
+                    <span key={c} className="combo-cluster-tag">{c}</span>
+                  ))}
+                </span>
+              )}
             </button>
           );
         })}
@@ -85,4 +87,3 @@ function CombinationSelector() {
 }
 
 export default CombinationSelector;
-

@@ -6,14 +6,15 @@ function App() {
   return (
     <div className="app-shell">
       <header className="app-header">
-        <div className="app-header-title">
-          <span className="app-logo-dot" />
-          <div>
-            <h1>Decision Companion System</h1>
-            <p className="app-header-subtitle">
-              Transparent, data-driven guidance for +2 students
-            </p>
+        <div className="app-header-inner">
+          <div className="app-logo-area">
+            <span className="app-logo-dot" style={{ background: '#16a34a' }} />
+            <h1 style={{ letterSpacing: '0px' }}>PathFinder</h1>
           </div>
+
+          <nav className="app-nav-links">
+            <a href="#" className="nav-link">How it works</a>
+          </nav>
         </div>
       </header>
       <main className="app-main">

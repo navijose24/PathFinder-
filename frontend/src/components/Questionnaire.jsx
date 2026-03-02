@@ -146,7 +146,6 @@ function Questionnaire() {
                       onClick={() => handleSelect(currentQ.id, opt.value)}
                     >
                       <span className="pill-label">{opt.text}</span>
-                      <span className="pill-scale">Value: {opt.value}</span>
                     </button>
                   );
                 })}

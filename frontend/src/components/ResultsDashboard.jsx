@@ -101,10 +101,6 @@ function ResultsDashboard() {
     <section className="card-section">
       <div className="card-section-header">
         <h2>Course ranking</h2>
-        <p className="muted">
-          We apply your criterion weights to each potential course and calculate a final
-          score. No black boxes—just transparent weighted sums.
-        </p>
       </div>
 
       <div className="card">
@@ -124,12 +120,13 @@ function ResultsDashboard() {
           <>
             <div className="results-grid">
               <div className="results-panel">
-                <h3 className="chart-title">Final ranking (top courses)</h3>
-                <ResponsiveContainer width="100%" height={260}>
+                <h2 className="chart-title">Final ranking (top courses)</h2>
+                <ResponsiveContainer width="100%" height={480}>
                   <BarChart
                     data={rankingData.slice(0, 8)}
                     layout="vertical"
                     margin={{ left: 40 }}
+                    barCategoryGap="25%"
                   >
                     <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                     <XAxis type="number" hide />
@@ -141,7 +138,7 @@ function ResultsDashboard() {
               </div>
 
               <div className="results-panel">
-                <h3 className="chart-title">Criteria profile (top 3 courses)</h3>
+                <h2 className="chart-title">Criteria profile (top 3 courses)</h2>
                 <ResponsiveContainer width="100%" height={260}>
                   <RadarChart data={radarData}>
                     <PolarGrid />
@@ -150,9 +147,9 @@ function ResultsDashboard() {
                     <Radar
                       name="Top 1"
                       dataKey="c1"
-                      stroke="#2563eb"
-                      fill="#2563eb"
-                      fillOpacity={0.3}
+                      stroke="#11924bff"
+                      fill="#249c5aff"
+                      fillOpacity={0.6}
                     />
                     <Radar
                       name="Top 2"
@@ -164,8 +161,8 @@ function ResultsDashboard() {
                     <Radar
                       name="Top 3"
                       dataKey="c3"
-                      stroke="#f97316"
-                      fill="#f97316"
+                      stroke="#38322eff"
+                      fill="#574d47ff"
                       fillOpacity={0.2}
                     />
                   </RadarChart>
@@ -194,10 +191,6 @@ function ResultsDashboard() {
               {explanation && (
                 <article className="explanation-card">
                   <h3>Why this course fits you</h3>
-                  <p className="muted small">
-                    Generated using your weights and preferences. This text is advisory
-                    and meant to support—not replace—human guidance.
-                  </p>
                   <div className="explanation-body">
                     {explanation.explanation
                       .split("\n")

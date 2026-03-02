@@ -29,6 +29,27 @@
         - Systems without transparency in scoring
 
 
-- **2026-02-15 – Problem Framing & Concept Clarification**
-    - 
+- **2026-02-15 – Concept Clarification**
+    - Goal: Understand difference between DCS and DSS and define system direction
+    - Google Search Queries:
+        - Decision Companion System
+        - Explainable decision system architecture
+        - Multi criteria decision making examples
+    - AI Prompts Used:
+        - What’s the difference b/w DSS and DCS?
+        - What DCS system should I do?
+        - What features do you expect from tech stack decision companion?
+        - Can you sum up problem statement, evaluation criteria and deliverables into one detailed chat with an example?
+    - Accepted:
+        - Focus on explainable scoring model.
+        - Companion-style guidance instead of analytical dashboard.
+        - Look for a real life problem that needs a DCS
+    - Rejected:
+        - Pure DSS analytics model.
+    - Impact on Thesis:
+        - Established that transparency and MCDM are core requirements.
+
+
+- **2026-02-22 – Problem Framing**
+    - Goal: Find a suitable problem
 

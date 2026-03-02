@@ -15,7 +15,7 @@ function App() {
           </Link>
 
           <nav className="app-nav-links">
-            <a href="#" className="nav-link">How it works</a>
+            <a href="/journey" className="nav-link"> Discover </a>
           </nav>
         </div>
       </header>
@@ -45,8 +45,8 @@ function App() {
               <Link to="/career-duel">Career Duel</Link>
             </div>
             <div className="link-group">
-              <h4>Support</h4>
-              <a href="#">How it works</a>
+              <h4>  </h4>
+              <a href="#"> </a>
             </div>
           </div>
         </div>

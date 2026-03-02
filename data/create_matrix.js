@@ -186,8 +186,8 @@ courses.forEach((course) => {
   courseMatrix[course] = calculateCourseScores(course);
 });
 
-// Write to root-level course_matrix.json so the backend keeps using it
-const matrixPath = path.join(DATA_DIR, '..', 'course_matrix.json');
+// Write into the same data directory so everything stays grouped
+const matrixPath = path.join(DATA_DIR, 'course_matrix.json');
 fs.writeFileSync(matrixPath, JSON.stringify(courseMatrix, null, 2));
 console.log('Successfully created course_matrix.json at', matrixPath);
 

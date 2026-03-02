@@ -192,4 +192,5 @@ Open the URL printed by Vite (typically `http://localhost:5173`) in your browser
 - **Testing & accessibility**
   - Add unit tests for weight and ranking engines and key components.
   - Improve keyboard navigation, ARIA attributes and localisation support.
+  
 

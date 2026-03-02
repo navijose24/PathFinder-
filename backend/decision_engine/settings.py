@@ -84,8 +84,9 @@ REST_FRAMEWORK = {
 
 
 BASE_JSON_DIR = Path(__file__).resolve().parents[2]
-STREAMS_JSON_PATH = BASE_JSON_DIR / "streams.json"
-QUESTIONS_JSON_PATH = BASE_JSON_DIR / "questions.json"
+DATA_JSON_DIR = BASE_JSON_DIR / "data"
+STREAMS_JSON_PATH = DATA_JSON_DIR / "streams.json"
+QUESTIONS_JSON_PATH = DATA_JSON_DIR / "questions.json"
 COURSE_MATRIX_JSON_PATH = BASE_JSON_DIR / "course_matrix.json"
 
 

@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 MATRIX_PATH = ROOT / "course_matrix.json"
 
 
@@ -28,28 +28,24 @@ CONSTRAINT_TRAITS = [
     "competitive_confidence",
 ]
 
-ALL_TRAITS_ORDER = (
-    [
-        "stability",
-        "analytical",
-        "income_priority",
-        "years_willing",
-        "financial_support",
-        "competitive_confidence",
-        "sector_preference",
-        "math_comfort",
-        "research_interest",
-        "stress_tolerance",
-    ]
-    + [
-        "creativity",
-        "entrepreneurship_interest",
-        "public_speaking",
-        "digital_skill",
-        "policy_interest",
-        "professional_exam_commitment",
-    ]
-)
+ALL_TRAITS_ORDER = [
+    "stability",
+    "analytical",
+    "income_priority",
+    "years_willing",
+    "financial_support",
+    "competitive_confidence",
+    "sector_preference",
+    "math_comfort",
+    "research_interest",
+    "stress_tolerance",
+    "creativity",
+    "entrepreneurship_interest",
+    "public_speaking",
+    "digital_skill",
+    "policy_interest",
+    "professional_exam_commitment",
+]
 
 
 def clamp(v: int, lo: int = 1, hi: int = 4) -> int:
@@ -61,13 +57,8 @@ def keyword_in(name_l: str, keywords) -> bool:
 
 
 def assign_new_traits(course_name: str, traits: dict) -> None:
-    """
-    Add / adjust the new preference traits based on course semantics.
-    Defaults are moderate (2) and then nudged using domain keywords.
-    """
     name_l = course_name.lower()
 
-    # Defaults
     creativity = 2
     entrepreneurship = 2
     public_speaking = 2
@@ -75,7 +66,6 @@ def assign_new_traits(course_name: str, traits: dict) -> None:
     policy = 1
     exam_commitment = 2
 
-    # Creative-heavy domains
     if keyword_in(
         name_l,
         [
@@ -101,11 +91,9 @@ def assign_new_traits(course_name: str, traits: dict) -> None:
     elif keyword_in(name_l, ["engineering", "technology", "science", "mathematics"]):
         creativity = 2
     else:
-        # Humanities / social sciences without explicit creative bend
         if keyword_in(name_l, ["history", "sociology", "psychology", "philosophy"]):
             creativity = 3
 
-    # Entrepreneurship / business orientation
     if keyword_in(
         name_l,
         [
@@ -126,7 +114,6 @@ def assign_new_traits(course_name: str, traits: dict) -> None:
     elif keyword_in(name_l, ["economics", "econometrics"]):
         entrepreneurship = 2
 
-    # Public speaking / front-facing
     if keyword_in(
         name_l,
         [
@@ -155,7 +142,6 @@ def assign_new_traits(course_name: str, traits: dict) -> None:
     elif keyword_in(name_l, ["nursing", "social work", "counselling", "psychology"]):
         public_speaking = 2
 
-    # Digital skill
     if keyword_in(
         name_l,
         [
@@ -189,7 +175,6 @@ def assign_new_traits(course_name: str, traits: dict) -> None:
     elif keyword_in(name_l, ["ba", "b.a", "bachelor of arts", "b.com", "b. com"]):
         digital = min(digital, 2)
 
-    # Policy interest
     if keyword_in(
         name_l,
         [
@@ -210,7 +195,6 @@ def assign_new_traits(course_name: str, traits: dict) -> None:
     elif keyword_in(name_l, ["commerce", "management", "business"]):
         policy = 2
 
-    # Professional exam commitment
     if keyword_in(
         name_l,
         [
@@ -249,10 +233,6 @@ def assign_new_traits(course_name: str, traits: dict) -> None:
 
 
 def adjust_constraints(course_name: str, traits: dict) -> None:
-    """
-    Enforce threshold-style semantics for years_willing, financial_support,
-    and competitive_confidence using realistic heuristic rules.
-    """
     name_l = course_name.lower()
 
     years = int(traits.get("years_willing", 2))
@@ -261,7 +241,6 @@ def adjust_constraints(course_name: str, traits: dict) -> None:
 
     is_diploma = keyword_in(name_l, ["diploma", "certificate"])
 
-    # Long / intensive professional paths
     very_long_keywords = [
         "mbbs",
         "bds",
@@ -287,7 +266,6 @@ def adjust_constraints(course_name: str, traits: dict) -> None:
         "bba llb",
     ]
 
-    # 1) years_willing thresholds
     if is_diploma:
         years = min(years, 2)
     elif keyword_in(name_l, very_long_keywords):
@@ -295,7 +273,6 @@ def adjust_constraints(course_name: str, traits: dict) -> None:
     elif keyword_in(name_l, long_keywords):
         years = max(years, 3)
     else:
-        # Standard 3-year BA/B.Com without professional add-ons → keep in 1–2 range
         if keyword_in(
             name_l,
             ["ba ", "b.a", "bachelor of arts", "b.com", "b. com", "bcom "],
@@ -315,7 +292,6 @@ def adjust_constraints(course_name: str, traits: dict) -> None:
         ):
             years = min(years, 2)
 
-    # 2) financial_support thresholds
     expensive_keywords = [
         "mbbs",
         "bds",
@@ -350,7 +326,6 @@ def adjust_constraints(course_name: str, traits: dict) -> None:
         ):
             finance = min(finance, 3)
 
-    # 3) competitive_confidence thresholds
     high_comp_keywords = very_long_keywords + long_keywords + [
         "engineering",
         "b.tech",
@@ -382,11 +357,6 @@ def adjust_constraints(course_name: str, traits: dict) -> None:
 
 
 def ensure_all_traits(course_name: str, traits: dict) -> None:
-    """
-    Ensure every course has all traits present, with sensible defaults,
-    and that constraint traits obey the threshold semantics.
-    """
-    # Seed original core traits if missing
     for key in [
         "stability",
         "analytical",
@@ -401,44 +371,31 @@ def ensure_all_traits(course_name: str, traits: dict) -> None:
     ]:
         traits.setdefault(key, 2)
 
-    # Adjust constraints first (they are minimum requirements)
     adjust_constraints(course_name, traits)
-
-    # Then assign new preference traits
     assign_new_traits(course_name, traits)
 
-    # Clamp everything to 1–4
     for key in ALL_TRAITS_ORDER:
         traits[key] = clamp(traits.get(key, 2))
 
 
 def make_vectors_unique(matrix: dict) -> None:
-    """
-    Ensure no two courses share an identical full trait vector
-    by slightly nudging preference traits where necessary.
-    """
     vector_to_courses = {}
     order = list(ALL_TRAITS_ORDER)
 
-    # Build initial mapping
     for name, traits in matrix.items():
         vec = tuple(traits[k] for k in order)
         vector_to_courses.setdefault(vec, []).append(name)
 
-    # Resolve duplicates
     for vec, courses in list(vector_to_courses.items()):
         if len(courses) <= 1:
             continue
 
-        # Keep the first as baseline; adjust the rest
-        for dup_idx, course_name in enumerate(courses[1:], start=1):
+        for course_name in courses[1:]:
             traits = matrix[course_name]
 
-            # Try to adjust one preference trait without touching constraints
             adjusted = False
             for key in PREFERENCE_TRAITS:
                 old_val = traits.get(key, 2)
-                # Try +1 then -1
                 for delta in (1, -1):
                     new_val = old_val + delta
                     if not (1 <= new_val <= 4):
@@ -446,17 +403,14 @@ def make_vectors_unique(matrix: dict) -> None:
                     traits[key] = new_val
                     new_vec = tuple(traits[k] for k in order)
                     if new_vec not in vector_to_courses:
-                        # Register new unique vector
                         vector_to_courses.setdefault(new_vec, []).append(course_name)
                         adjusted = True
                         break
-                    # Revert and try another
                     traits[key] = old_val
                 if adjusted:
                     break
 
             if not adjusted:
-                # As a fallback, nudge stability if possible
                 key = "stability"
                 old_val = traits.get(key, 2)
                 new_val = 4 if old_val < 4 else 3
@@ -468,14 +422,14 @@ def make_vectors_unique(matrix: dict) -> None:
 def main() -> None:
     data = json.loads(MATRIX_PATH.read_text(encoding="utf-8"))
 
-    # First pass: ensure all traits and enforce constraints
     for course_name, traits in data.items():
         ensure_all_traits(course_name, traits)
 
-    # Second pass: remove identical vectors
     make_vectors_unique(data)
 
-    MATRIX_PATH.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    MATRIX_PATH.write_text(
+        json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
 
 
 if __name__ == "__main__":

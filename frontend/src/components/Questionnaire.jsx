@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { calculateWeights, fetchQuestions } from "../api/client.js";
 import { useDecision } from "../state/DecisionContext.jsx";
+import { formatCriterionLabel } from "../utils/criteriaLabels.js";
 
 function Questionnaire() {
   const { state, dispatch } = useDecision();
@@ -132,7 +133,9 @@ function Questionnaire() {
               <div className="question-header">
                 <span className="q-index-badge">Q{currentIndex + 1}</span>
                 <h3>{currentQ.text}</h3>
-                <p className="criterion-label">Criterion: {currentQ.criterion}</p>
+                <p className="criterion-label">
+                  Criterion: {formatCriterionLabel(currentQ.criterion)}
+                </p>
               </div>
 
               <div className="question-options">

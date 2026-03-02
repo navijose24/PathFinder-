@@ -37,6 +37,11 @@ def rank_courses(
 
     ranked: List[Dict[str, Any]] = []
 
+    # Determine the student's highest‑priority criterion for tie‑breaking.
+    top_criterion: str | None = None
+    if user_weights:
+        top_criterion = max(user_weights.items(), key=lambda kv: kv[1])[0]
+
     for course_name in all_courses:
         criterion_scores = course_matrix.get(course_name)
         if not criterion_scores:
@@ -61,10 +66,22 @@ def rank_courses(
             }
         )
 
-    ranked.sort(key=lambda c: c["final_score"], reverse=True)
+    # Primary sort: overall final score (descending).
+    # Secondary sort (for ties): score on the highest‑weighted criterion (descending),
+    # so that tie‑breaks respect the student's top priority.
+    def _sort_key(course: Dict[str, Any]) -> tuple[float, float]:
+        primary = float(course["final_score"])
+        if top_criterion:
+            secondary = float(course["criterion_scores"].get(top_criterion, 0.0))
+        else:
+            secondary = 0.0
+        return (primary, secondary)
+
+    ranked.sort(key=_sort_key, reverse=True)
 
     return {
         "ranked_courses": ranked,
         "top_3": ranked[:3],
+        "tie_breaker_criterion": top_criterion,
     }
 

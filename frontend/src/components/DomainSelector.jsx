@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchStreams } from "../api/client.js";
 import { useDecision } from "../state/DecisionContext.jsx";
 import "./DomainSelector.css";
@@ -13,6 +14,7 @@ const defaultImage = "https://images.unsplash.com/photo-1513258496099-48168024ae
 
 function DomainSelector() {
   const { state, dispatch } = useDecision();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -43,6 +45,7 @@ function DomainSelector() {
 
   const handleSelect = (name) => {
     dispatch({ type: "SET_DOMAIN", payload: name });
+    navigate("/journey");
   };
 
   return (
@@ -50,13 +53,9 @@ function DomainSelector() {
       <div className="hero-left">
         <h1 className="hero-heading">
           Choose<br />
-          Your<br />
+          Your +2<br />
           Stream
         </h1>
-        <div className="hero-search-box">
-          <input type="text" placeholder="Genz switch" />
-          <button type="button" className="go-btn">Go</button>
-        </div>
         {loading && <p className="muted" style={{ marginTop: '1rem' }}>Loading domains…</p>}
         {error && <p className="error-text" style={{ marginTop: '1rem' }}>{error}</p>}
       </div>
@@ -77,7 +76,7 @@ function DomainSelector() {
                 <h3>{domain.name}</h3>
                 <div className="accordion-stats">
                   <span className="count">{domain.combination_count}</span>
-                  <span className="label">TOPICS</span>
+                  <span className="label">SUBJECT COMBINATIONS</span>
                 </div>
               </div>
             </div>

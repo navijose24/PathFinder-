@@ -15,7 +15,7 @@ const initialState = {
     primary_criteria: ["stability", "analytical", "income_priority", "years_willing"],
     sorted_criteria: [],
   },
-  userWeights: {}, // editable normalized weights
+  userWeights: {}, // editable weights per criterion, 0–100 scale, independent (do not need to sum to 100)
   ranking: null,
   explanation: null,
 };
@@ -50,7 +50,12 @@ function decisionReducer(state, action) {
       return { ...state, questions: action.payload };
     case "SET_ANSWERS":
       return { ...state, answers: action.payload };
-    case "SET_WEIGHTS":
+    case "SET_WEIGHTS": {
+      // Store user weights as 0–100 so each slider is independent
+      const nw = action.payload.normalized_weights || {};
+      const rawWeights = Object.fromEntries(
+        Object.entries(nw).map(([k, v]) => [k, (Number(v) || 0) * 100]),
+      );
       return {
         ...state,
         weights: {
@@ -60,8 +65,9 @@ function decisionReducer(state, action) {
             action.payload.primary_criteria || state.weights.primary_criteria,
           sorted_criteria: action.payload.sorted_criteria,
         },
-        userWeights: action.payload.normalized_weights,
+        userWeights: rawWeights,
       };
+    }
     case "SET_USER_WEIGHTS":
       return {
         ...state,

@@ -1,6 +1,8 @@
 import { Routes, Route, Navigate, Link } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Result from "./pages/Result.jsx";
+import Journey from "./pages/Journey.jsx";
+import CareerDuelPage from "./pages/CareerDuelPage.jsx";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
       <main className="app-main">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/journey" element={<Journey />} />
+          <Route path="/career-duel" element={<CareerDuelPage />} />
           <Route path="/results" element={<Result />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

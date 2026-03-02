@@ -16,6 +16,18 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDecision } from "../state/DecisionContext.jsx";
 import { generateExplanation, rankCourses } from "../api/client.js";
+import { formatCriterionLabel } from "../utils/criteriaLabels.js";
+
+/** Convert raw weights (0–100 per criterion) to normalized (sum = 1) for the API. */
+function normalizeWeightsForApi(raw) {
+  const entries = Object.entries(raw || {}).map(([k, v]) => [k, Number(v) || 0]);
+  const sum = entries.reduce((acc, [, v]) => acc + v, 0);
+  if (sum <= 0) {
+    const n = entries.length;
+    return Object.fromEntries(entries.map(([k]) => [k, n ? 1 / n : 0]));
+  }
+  return Object.fromEntries(entries.map(([k, v]) => [k, v / sum]));
+}
 
 function ResultsDashboard() {
   const { state, dispatch } = useDecision();
@@ -23,6 +35,8 @@ function ResultsDashboard() {
   const [loading, setLoading] = useState(false);
   const [explaining, setExplaining] = useState(false);
   const [error, setError] = useState(null);
+  const [showComparison, setShowComparison] = useState(false);
+  const [showTieBreak, setShowTieBreak] = useState(false);
   const navigate = useNavigate();
 
   const hasWeights = Object.keys(userWeights || {}).length > 0;
@@ -42,12 +56,25 @@ function ResultsDashboard() {
     const criteria = Object.keys(userWeights || {});
 
     return criteria.map((crit) => ({
-      criterion: crit.replace("_", " "),
+      criterion: formatCriterionLabel(crit),
       c1: topCourses[0]?.criterion_scores?.[crit] || 0,
       c2: topCourses[1]?.criterion_scores?.[crit] || 0,
       c3: topCourses[2]?.criterion_scores?.[crit] || 0,
     }));
   }, [ranking, userWeights]);
+
+  const jointTopCourses = useMemo(() => {
+    if (!ranking?.ranked_courses?.length) return [];
+    const [first, ...rest] = ranking.ranked_courses;
+    const topScore = first.final_score;
+    const EPSILON = 1e-6;
+    return [first, ...rest.filter((c) => Math.abs(c.final_score - topScore) < EPSILON)];
+  }, [ranking]);
+
+  const bestCourse = useMemo(
+    () => (ranking?.ranked_courses?.length ? ranking.ranked_courses[0] : null),
+    [ranking],
+  );
 
   const handleGenerate = async () => {
     if (!selectedCombination || !hasWeights) {
@@ -57,7 +84,10 @@ function ResultsDashboard() {
     try {
       setLoading(true);
       setError(null);
-      const result = await rankCourses(selectedCombination.id, userWeights);
+      const result = await rankCourses(
+        selectedCombination.id,
+        normalizeWeightsForApi(userWeights),
+      );
       dispatch({ type: "SET_RANKING", payload: result });
       navigate("/results");
     } catch (err) {
@@ -79,7 +109,7 @@ function ResultsDashboard() {
       const payload = {
         top_course: topCourse.course,
         top_criteria: weights.sorted_criteria.slice(0, 3),
-        user_weights: userWeights,
+        user_weights: normalizeWeightsForApi(userWeights),
         subject_combination: selectedCombination?.subjects?.join(", ") || "",
       };
       const result = await generateExplanation(payload);
@@ -172,21 +202,122 @@ function ResultsDashboard() {
 
             <div className="top-course-row">
               <div className="top-course-card">
-                <h3>Top recommended course</h3>
-                <p className="top-course-name">{ranking.top_3[0]?.course}</p>
-                <p className="muted small">
-                  Based on your stream and subject combination:{" "}
-                  {selectedCombination.subjects?.join(" · ")}
-                </p>
-                <button
-                  type="button"
-                  className="btn btn-ghost"
-                  onClick={handleExplain}
-                  disabled={explaining}
-                >
-                  {explaining ? "Asking AI…" : "Ask AI for a personalised explanation"}
-                </button>
+                {jointTopCourses.length > 1 ? (
+                  <>
+                    <h3>Joint top courses</h3>
+                    <ul className="top-course-list">
+                      {jointTopCourses.map((course) => (
+                        <li key={course.course} className="top-course-name">
+                          {course.course}
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="muted small">
+                      These {jointTopCourses.length} courses are equally suitable based on
+                      your profile.
+                    </p>
+                    {ranking.tie_breaker_criterion && (
+                      <p className="muted small">
+                        When you need a single recommendation, we use your highest‑priority
+                        criterion (
+                        {formatCriterionLabel(ranking.tie_breaker_criterion)})
+                        to break the tie.
+                      </p>
+                    )}
+                    <div className="top-course-actions">
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        onClick={() => setShowComparison((prev) => !prev)}
+                      >
+                        {showComparison ? "Hide comparison" : "Compare these courses"}
+                      </button>
+                      {ranking.tie_breaker_criterion && (
+                        <button
+                          type="button"
+                          className="btn btn-ghost"
+                          onClick={() => setShowTieBreak((prev) => !prev)}
+                        >
+                          {showTieBreak
+                            ? "Hide tie‑break suggestion"
+                            : "Use my top priority to pick one"}
+                        </button>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h3>Top recommended course</h3>
+                    <p className="top-course-name">{bestCourse?.course}</p>
+                    <p className="muted small">
+                      Based on your stream and subject combination:{" "}
+                      {selectedCombination.subjects?.join(" · ")}
+                    </p>
+                    <button
+                      type="button"
+                      className="btn btn-ghost"
+                      onClick={handleExplain}
+                      disabled={explaining}
+                    >
+                      {explaining ? "Asking AI…" : "Ask AI for a personalised explanation"}
+                    </button>
+                  </>
+                )}
               </div>
+
+              {showComparison && jointTopCourses.length > 1 && (
+                <div className="comparison-card">
+                  <h3>Compare joint top courses</h3>
+                  <div className="comparison-table-wrapper">
+                    <table className="comparison-table">
+                      <thead>
+                        <tr>
+                          <th>Criterion</th>
+                          {jointTopCourses.map((course) => (
+                            <th key={course.course}>{course.course}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Object.keys(userWeights || {}).map((crit) => (
+                          <tr key={crit}>
+                            <td>{formatCriterionLabel(crit)}</td>
+                            {jointTopCourses.map((course) => (
+                              <td key={`${course.course}-${crit}`}>
+                                {Number(
+                                  course.criterion_scores?.[crit] ?? 0,
+                                ).toFixed(2)}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {showTieBreak && bestCourse && (
+                <div className="explanation-card">
+                  <h3>Suggested course using your top priority</h3>
+                  <p className="top-course-name">{bestCourse.course}</p>
+                  {ranking.tie_breaker_criterion && (
+                    <p className="muted small">
+                      This course has the strongest score for your most important
+                      criterion:{" "}
+                      {formatCriterionLabel(ranking.tie_breaker_criterion)}.
+                    </p>
+                  )}
+                  <button
+                    type="button"
+                    className="btn btn-ghost"
+                    onClick={handleExplain}
+                    disabled={explaining}
+                  >
+                    {explaining ? "Asking AI…" : "Ask AI for a personalised explanation"}
+                  </button>
+                </div>
+              )}
 
               {explanation && (
                 <article className="explanation-card">

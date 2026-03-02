@@ -9,6 +9,7 @@ import {
   CartesianGrid,
 } from "recharts";
 import { useDecision } from "../state/DecisionContext.jsx";
+import { formatCriterionLabel } from "../utils/criteriaLabels.js";
 
 function CriteriaWeights() {
   const { state, dispatch } = useDecision();
@@ -29,9 +30,9 @@ function CriteriaWeights() {
   );
 
   const chartData = visibleCriteria.map((crit) => ({
-    name: crit.replace("_", " "),
+    name: formatCriterionLabel(crit),
     key: crit,
-    value: (userWeights[crit] || 0) * 100,
+    value: Number(userWeights[crit]) || 0,
   }));
 
   const handleToggleExtra = (criterion) => {
@@ -43,16 +44,11 @@ function CriteriaWeights() {
   };
 
   const handleSliderChange = (criterion, value) => {
-    const numeric = Number(value);
-    const updatedRaw = { ...userWeights, [criterion]: numeric };
-    const sum = Object.values(updatedRaw).reduce((acc, v) => acc + Number(v || 0), 0);
-    if (sum <= 0) {
-      return;
-    }
-    const normalized = Object.fromEntries(
-      Object.entries(updatedRaw).map(([k, v]) => [k, Number(v) / sum]),
-    );
-    dispatch({ type: "SET_USER_WEIGHTS", payload: normalized });
+    const num = Math.max(0, Math.min(100, Number(value)));
+    dispatch({
+      type: "SET_USER_WEIGHTS",
+      payload: { ...userWeights, [criterion]: num },
+    });
   };
 
   if (!Object.keys(userWeights || {}).length) {
@@ -90,11 +86,11 @@ function CriteriaWeights() {
             <h3 className="chart-title">Adjust weights</h3>
             <div className="slider-list">
               {visibleCriteria.map((crit) => {
-                const current = (userWeights[crit] || 0) * 100;
+                const current = Number(userWeights[crit]) || 0;
                 return (
                   <div key={crit} className="slider-row">
                     <div className="slider-label">
-                      <span>{crit.replace("_", " ")}</span>
+                      <span>{formatCriterionLabel(crit)}</span>
                       <span className="slider-value">
                         {current.toFixed(1)}
                         %
@@ -134,7 +130,7 @@ function CriteriaWeights() {
                       className={`pill-toggle ${active ? "pill-toggle-active" : ""}`}
                       onClick={() => handleToggleExtra(crit)}
                     >
-                      {crit.replace("_", " ")}
+                      {formatCriterionLabel(crit)}
                     </button>
                   );
                 })}

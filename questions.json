@@ -121,7 +121,7 @@
       {
         "id": "Q8",
         "text": "How interested are you in governance and public policy?",
-        "criterion": "research_interest",
+        "criterion": "policy_interest",
         "options": [
           { "text": "Not interested", "value": 1 },
           { "text": "Somewhat interested", "value": 2 },
@@ -131,19 +131,19 @@
       },
       {
         "id": "Q9",
-        "text": "How comfortable are you with heavy reading and writing?",
-        "criterion": "analytical",
+        "text": "How creative are you in expressing complex ideas (writing, media, storytelling)?",
+        "criterion": "creativity",
         "options": [
-          { "text": "Very uncomfortable", "value": 1 },
-          { "text": "Manageable", "value": 2 },
-          { "text": "Comfortable", "value": 3 },
-          { "text": "Very strong in writing and analysis", "value": 4 }
+          { "text": "Rarely express ideas creatively", "value": 1 },
+          { "text": "Occasionally creative in expression", "value": 2 },
+          { "text": "Frequently creative in how you express ideas", "value": 3 },
+          { "text": "Highly creative storyteller or communicator", "value": 4 }
         ]
       },
       {
         "id": "Q10",
         "text": "How confident are you in public speaking?",
-        "criterion": "stress_tolerance",
+        "criterion": "public_speaking",
         "options": [
           { "text": "Very low confidence", "value": 1 },
           { "text": "Somewhat confident", "value": 2 },
@@ -168,7 +168,7 @@
       {
         "id": "Q9",
         "text": "How interested are you in starting a business?",
-        "criterion": "income_priority",
+        "criterion": "entrepreneurship_interest",
         "options": [
           { "text": "Not interested", "value": 1 },
           { "text": "Maybe someday", "value": 2 },
@@ -179,7 +179,7 @@
       {
         "id": "Q10",
         "text": "Are you willing to pursue professional certifications (CA/CS/CMA)?",
-        "criterion": "competitive_confidence",
+        "criterion": "professional_exam_commitment",
         "options": [
           { "text": "Not willing", "value": 1 },
           { "text": "Maybe", "value": 2 },
@@ -193,7 +193,7 @@
       {
         "id": "Q8",
         "text": "How strong is your creative mindset?",
-        "criterion": "analytical",
+        "criterion": "creativity",
         "options": [
           { "text": "Low creativity", "value": 1 },
           { "text": "Some creativity", "value": 2 },
@@ -204,7 +204,7 @@
       {
         "id": "Q9",
         "text": "How comfortable are you being in public view (camera/stage)?",
-        "criterion": "stress_tolerance",
+        "criterion": "public_speaking",
         "options": [
           { "text": "Very uncomfortable", "value": 1 },
           { "text": "Manageable", "value": 2 },
@@ -215,7 +215,7 @@
       {
         "id": "Q10",
         "text": "How skilled are you with digital tools and technology?",
-        "criterion": "math_comfort",
+        "criterion": "digital_skill",
         "options": [
           { "text": "Beginner", "value": 1 },
           { "text": "Basic user", "value": 2 },

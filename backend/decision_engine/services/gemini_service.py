@@ -34,32 +34,53 @@ def _format_prompt(
     )
 
 
+def _fallback_explanation() -> str:
+    """
+    Deterministic text used when the Gemini API is not available.
+    """
+    return (
+        "Based on your preferences, this course offers a strong match with your "
+        "desired stability, analytical depth, and long‑term career growth. "
+        "It balances study duration with future opportunities and is likely to "
+        "provide a healthy income trajectory over time."
+    )
+
+
 def _use_gemini_model(prompt: str) -> str:
     """
-    Call Google's Gemini API if credentials are available.
-    Falls back to a deterministic explanation when not configured.
+    Call Google's Gemini API (using the modern google-genai SDK) if credentials
+    are available. Falls back to a deterministic explanation otherwise.
     """
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        return (
-            "Based on your preferences, this course offers a strong match with your "
-            "desired stability, analytical depth, and long‑term career growth. "
-            "It balances study duration with future opportunities and is likely to "
-            "provide a healthy income trajectory over time."
-        )
+        return _fallback_explanation()
+
+    model_name = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 
     try:
-        import google.generativeai as genai
+        # Preferred: new google-genai SDK.
+        from google import genai  # type: ignore[import]
 
-        genai.configure(api_key=api_key)
-        model = genai.GenerativeModel("gemini-1.5-pro-latest")
-        response = model.generate_content(prompt)
-        return response.text or "The model did not return any content."
-    except Exception as exc:  # pragma: no cover - defensive path
-        return (
-            "An AI explanation could not be generated at this moment. "
-            f"(Internal note: {exc})"
+        client = genai.Client(api_key=api_key)
+        response = client.models.generate_content(
+            model=model_name,
+            contents=prompt,
         )
+
+        # Try to extract text in a robust way across SDK versions.
+        text = ""
+        if getattr(response, "candidates", None):
+            first = response.candidates[0]
+            parts = getattr(first, "content", getattr(first, "contents", None)).parts  # type: ignore[attr-defined]
+            text = "".join(getattr(p, "text", "") for p in parts)
+        else:
+            text = getattr(response, "text", "") or ""
+
+        return text or _fallback_explanation()
+    except Exception:
+        # As a safety net, fall back to the deterministic copy instead of
+        # surfacing internal errors to end users.
+        return _fallback_explanation()
 
 
 def generate_course_explanation(payload: Dict[str, Any]) -> Dict[str, str]:

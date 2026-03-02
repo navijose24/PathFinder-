@@ -146,8 +146,8 @@ function CareerDuel() {
     <section className="career-duel-section" id="career-duel">
       <div className="career-duel-header">
         <span className="badge">Special mode · Career Duel</span>
-        <h2>Compare your own course options</h2>
-        <p className="muted">
+        <h2 className="section-title">Compare your own course options</h2>
+        <p className="hero-subtitle">
           Enter the courses you are torn between. We will walk you through a short
           reflection and show which option fits you best right now – with a side‑by‑side
           comparison.
@@ -244,9 +244,8 @@ function CareerDuel() {
                           <button
                             key={s.value}
                             type="button"
-                            className={`score-pill ${
-                              selected === s.value ? "score-pill-active" : ""
-                            }`}
+                            className={`score-pill ${selected === s.value ? "score-pill-active" : ""
+                              }`}
                             onClick={() => handleScoreSelect(opt, s.value)}
                           >
                             <span className="score-number">{s.value}</span>
@@ -295,17 +294,18 @@ function CareerDuel() {
 
       {hasEnoughOptions && topOption && allAnswered && (
         <div className="career-duel-results">
-          <div className="career-duel-card">
-            <h3 className="card-title">3. Our suggestion based on your ratings</h3>
+          <div className="career-duel-card ranking-card">
+            <h3 className="card-title">3. Our suggestion</h3>
             <p className="muted">
-              Looking at all your answers together, the strongest overall fit right
-              now is:
+              Based on your ratings, the strongest overall fit right now is:
             </p>
-            <p className="duel-top-option">{topOption.option}</p>
-            <p className="muted small">
+            <div className="winner-badge">
+              <span className="winner-label">🏆 Best Fit</span>
+              <p className="duel-top-option">{topOption.option}</p>
+            </div>
+            <p className="muted small" style={{ marginTop: '1.5rem' }}>
               This option has the highest average score across your reflection
-              questions. Remember: this tool supports your thinking – your final
-              decision is always yours.
+              questions.
             </p>
           </div>
 

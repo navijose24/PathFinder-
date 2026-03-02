@@ -151,12 +151,12 @@ function ResultsDashboard() {
             <div className="results-grid">
               <div className="results-panel">
                 <h2 className="chart-title">Final ranking (top courses)</h2>
-                <ResponsiveContainer width="100%" height={480}>
+                <ResponsiveContainer width="100%" height={550}>
                   <BarChart
                     data={rankingData.slice(0, 8)}
                     layout="vertical"
-                    margin={{ left: 40 }}
-                    barCategoryGap="25%"
+                    margin={{ left: 40, right: 30 }}
+                    barCategoryGap="35%"
                   >
                     <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                     <XAxis type="number" hide />

@@ -52,9 +52,9 @@ function DomainSelector() {
     <section className="hero-section" id="domain-selector">
       <div className="hero-left">
         <h1 className="hero-heading">
-          Choose<br />
-          Your +2<br />
-          Stream
+          choose<br />
+          your<br />
+          stream
         </h1>
         {loading && <p className="muted" style={{ marginTop: '1rem' }}>Loading domains…</p>}
         {error && <p className="error-text" style={{ marginTop: '1rem' }}>{error}</p>}

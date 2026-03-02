@@ -66,25 +66,36 @@ function CriteriaWeights() {
       </div>
 
       <div className="card">
-        <div className="chart-row">
+        <div className="chart-row" style={{ gap: '2.5rem', alignItems: 'flex-start' }}>
           <div className="chart-col">
-            <h3 className="chart-title">Weight distribution (%)</h3>
-            <ResponsiveContainer width="100%" height={260}>
-              <BarChart data={chartData} layout="vertical" margin={{ left: 20 }}>
+            <h3 className="chart-title" style={{ marginBottom: '1.5rem' }}>Weight distribution (%)</h3>
+            <ResponsiveContainer width="100%" height={visibleCriteria.length * 60 + 40}>
+              <BarChart
+                data={chartData}
+                layout="vertical"
+                margin={{ left: 0, right: 30, top: 0, bottom: 0 }}
+                barCategoryGap="25%"
+              >
                 <CartesianGrid strokeDasharray="3 3" horizontal={false} />
                 <XAxis type="number" domain={[0, 100]} hide />
-                <YAxis type="category" dataKey="name" width={140} />
+                <YAxis
+                  type="category"
+                  dataKey="name"
+                  width={140}
+                  tick={{ fontSize: 13, fontWeight: 500 }}
+                  tickMargin={8}
+                />
                 <Tooltip
                   formatter={(value) => [`${value.toFixed(1)}%`, "Weight"]}
                 />
-                <Bar dataKey="value" fill="#2563eb" radius={[4, 4, 4, 4]} />
+                <Bar dataKey="value" fill="#2563eb" radius={[0, 4, 4, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
 
           <div className="chart-col">
-            <h3 className="chart-title">Adjust weights</h3>
-            <div className="slider-list">
+            <h3 className="chart-title" style={{ marginBottom: '1.5rem' }}>Adjust weights</h3>
+            <div className="slider-list" style={{ gap: '1.25rem' }}>
               {visibleCriteria.map((crit) => {
                 const current = Number(userWeights[crit]) || 0;
                 return (
